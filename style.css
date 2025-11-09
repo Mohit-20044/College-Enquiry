@@ -26,6 +26,11 @@ body{
     padding: 10px;
     margin-bottom: 10px;
 }
+
+button img{
+    width: 15px;
+    height: 15px;
+}
 .user-msg{
     color: blue;
     margin: 5px 0;

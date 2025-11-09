@@ -24,3 +24,20 @@ async function sendMessage() {
     chatBox.scrolltop = chatBox.scrollHeight;
 
 }
+
+async function listenVoice() {
+  const res = await fetch("http://127.0.0.1:5000/listen");
+  const data = await res.json();
+
+  appendMessage("🎙️ You (voice)", data.recognized_text);
+
+  // Send converted text to chatbot
+  const chatRes = await fetch("http://127.0.0.1:5000/chat", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ message: data.recognized_text })
+  });
+
+  const replyData = await chatRes.json();
+  appendMessage("🤖 RIMT Bot", replyData.reply);
+}
