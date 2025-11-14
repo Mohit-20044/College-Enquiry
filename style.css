@@ -27,6 +27,22 @@ body{
     margin-bottom: 10px;
 }
 
+.watermark{
+    position: relative;
+}
+
+.watermark::before {
+    content: "ENQUIRY CHATBOT";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-35deg);
+    font-size: 60px;
+    color: rgba(14, 13, 13, 0.06);
+    font-weight: 700;
+    pointer-events: none;
+}
+
 button img{
     width: 15px;
     height: 15px;
